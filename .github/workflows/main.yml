@@ -1,23 +1,23 @@
-name: Multiple Testing Framework Pipeline
+name: Automated Test In CI
 
 on:
   push:
   workflow_dispatch:
   schedule:
-     - cron: '0 10 * * 1' # run at 10 am every Wednesday  
+     - cron: '0 10 * * 1' 
 
 jobs:
-  Jmeter_test:
+  JMeter:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
       
-      - name: run jmeter on github action
+      - name: Execute JMeter
         uses:  rbhadti94/apache-jmeter-action@v0.4.0
         with:
-            testFilePath: './apache-Jmeter/Browsing Threads.jmx'
+            testFilePath: './apache-Jmeter/Browsing\ Threads.jmx.jmx'
             outputReportsFolder: 'Jmeter/result'
      
       - name: Archive test results
@@ -27,7 +27,7 @@ jobs:
           name: jmeterReport
           path: Jmeter/result
 
-  Nightwatch_test:
+  Nightwatch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -46,7 +46,7 @@ jobs:
             npm ci
             sudo apt-get install xvfb
                  
-      - name: Run Nightwatch tests
+      - name: Execute Nightwatch tests
         run: |
              cd Nightwatch_Test-main
              xvfb-run --auto-servernum npm test -- --env chrome
@@ -58,7 +58,7 @@ jobs:
           name: nightwatch-results
           path: Nightwatch/tests_output 
 
-  Postman_test:
+  Postman:
     runs-on: ubuntu-latest
 
     steps:
@@ -76,7 +76,7 @@ jobs:
           npm install -g newman
           npm install -g newman-reporter-htmlextra
           
-      - name: run  Postman Tests
+      - name: Execute Postman Test
         run: |
             cd Postman
             newman run "Assignment1_postman_collection.json" -e "Postman_Assignment1_postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
@@ -88,7 +88,7 @@ jobs:
           name: postmanReport
           path: Postman/testArtifacts
     
-  RestAssured_test:
+  RestAssured:
     runs-on: ubuntu-latest
 
     steps:
@@ -105,7 +105,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      - name: Run Rest Assured tests
+      - name: Execute Rest Assured test
         run: |
              cd RestAssignent 1
              mvn clean test
@@ -117,7 +117,7 @@ jobs:
           name: restAssuredReport
           path: RestAssignent 1/target/surefire-reports
 
-  Selenium_test:
+  Selenium:
       runs-on: ubuntu-latest
 
       steps:
@@ -134,7 +134,7 @@ jobs:
           distribution: 'temurin'
           cache: maven
     
-      - name: Run Selenium tests
+      - name: Execute Selenium test
         run: |
             cd NewSelenium-main
             mvn clean test 
