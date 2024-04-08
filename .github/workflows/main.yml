@@ -107,7 +107,7 @@ jobs:
 
       - name: Run Rest Assured tests
         run: |
-             cd RestAssignment 1
+             cd RestAssignent 1
              mvn clean test
 
       - name: Archive test results
@@ -115,7 +115,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: restAssuredReport
-          path: RestAssignment 1/target/surefire-reports
+          path: RestAssignent 1/target/surefire-reports
 
   Selenium_test:
       runs-on: ubuntu-latest
