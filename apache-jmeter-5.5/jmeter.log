@@ -1,0 +1,22 @@
+2024-03-25 19:56:09,132 INFO o.a.j.u.JMeterUtils: Setting Locale to en_IN
+2024-03-25 19:56:09,161 INFO o.a.j.JMeter: Loading user properties from: /home/knoldus/apache-jmeter-5.5/bin/user.properties
+2024-03-25 19:56:09,161 INFO o.a.j.JMeter: Loading system properties from: /home/knoldus/apache-jmeter-5.5/bin/system.properties
+2024-03-25 19:56:09,168 INFO o.a.j.JMeter: Copyright (c) 1998-2022 The Apache Software Foundation
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: Version 5.5
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: java.version=11.0.22
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: os.name=Linux
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: os.arch=amd64
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: os.version=5.15.0-100-generic
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: file.encoding=UTF-8
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: java.awt.headless=null
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: Max memory     =4118806528
+2024-03-25 19:56:09,169 INFO o.a.j.JMeter: Available Processors =8
+2024-03-25 19:56:09,180 INFO o.a.j.JMeter: Default Locale=English (India)
+2024-03-25 19:56:09,180 INFO o.a.j.JMeter: JMeter  Locale=English (India)
+2024-03-25 19:56:09,180 INFO o.a.j.JMeter: JMeterHome=/home/knoldus/apache-jmeter-5.5
+2024-03-25 19:56:09,180 INFO o.a.j.JMeter: user.dir  =/home/knoldus/apache-jmeter-5.5
+2024-03-25 19:56:09,180 INFO o.a.j.JMeter: PWD       =/home/knoldus/apache-jmeter-5.5
+2024-03-25 19:56:09,346 INFO o.a.j.JMeter: IP: 172.20.10.2 Name: INL-CHD6T73 FullName: INL-CHD6T73
+2024-03-25 19:56:09,368 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2024-03-25 19:56:09,662 INFO o.a.j.JMeterGuiLauncher: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
