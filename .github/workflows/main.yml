@@ -14,18 +14,30 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       
-      - name: Execute JMeter
-        uses:  rbhadti94/apache-jmeter-action@v0.4.0
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
         with:
-            testFilePath: './apache-jmeter-5.5/bin/Browsing Threads.jmx'
-            outputReportsFolder: 'Jmeter/result'
-     
+          java-version: '21'
+          distribution: 'adopt'
+ 
+      - name: Download and Install JMeter
+        run: |
+          wget https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz
+          tar -xf apache-jmeter-5.6.3.tgz
+          sudo mv apache-jmeter-5.6.3 /opt/
+          echo 'export PATH=/opt/apache-jmeter-5.6.3/bin:$PATH' >> ~/.bashrc
+          source ~/.bashrc
+      - name: Run JMeter Tests
+        run: /opt/apache-jmeter-5.6.3/bin/jmeter -n -t "jmeterAssignment/Browsing_Threads.jmx"
+ 
+          
+          
       - name: Archive test results
         if: always()  
         uses: actions/upload-artifact@v4
         with:
           name: jmeterReport
-          path: Jmeter/result
+          path: Jmeter
 
   Nightwatch:
     runs-on: ubuntu-latest
@@ -102,14 +114,16 @@ jobs:
         uses: actions/setup-java@v4
         with:
           java-version: '11'
-          distribution: 'temurin'
+          distribution: 'adopt'
           cache: maven
 
-      - name: Execute Rest Assured test
-        run: |
-             cd RestAssignent 1
-             mvn clean test
+      - name: Install Maven
+        run: sudo apt-get install maven -y
 
+      - name: Build and Test
+        run: mvn test -Dtest=CRUDTest -X
+        working-directory: "RestAssignent 1"
+      
       - name: Archive test results
         if: always()
         uses: actions/upload-artifact@v4
