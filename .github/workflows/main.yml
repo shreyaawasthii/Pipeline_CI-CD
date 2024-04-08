@@ -79,7 +79,7 @@ jobs:
       - name: run  Postman Tests
         run: |
             cd Postman
-            newman run "Rest API CRUD Operations.postmanCollection.json.json" -e "New API Environment.postmanEnvironment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
+            newman run "Assignment1_postman_collection.json" -e "Postman_Assignment1_postman_environment.json" -r cli,htmlextra --reporter-htmlextra-export testArtifacts/htmlreport.html
         
       - name: Archive test results
         if: always()  
